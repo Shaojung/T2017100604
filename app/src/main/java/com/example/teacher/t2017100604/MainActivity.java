@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -51,4 +53,43 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    public void clickWrite2(View v)
+    {
+        String path = getFilesDir().getAbsolutePath();
+        File fname = new File(path + File.separator + "data2.txt");
+        try {
+            FileWriter fw = new FileWriter(fname);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("Hello World");
+            bw.newLine();
+            bw.write("This is android");
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void clickRead2(View v)
+    {
+        String path = getFilesDir().getAbsolutePath();
+        File fname = new File(path + File.separator + "data2.txt");
+        try {
+            FileReader fr = new FileReader(fname);
+            BufferedReader br = new BufferedReader(fr);
+            String str;
+            while ((str=br.readLine()) != null)
+            {
+                Log.d("FNAME", "Read:" + str);
+            }
+            br.close();
+            fr.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
