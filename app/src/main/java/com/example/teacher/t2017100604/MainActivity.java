@@ -146,5 +146,25 @@ public class MainActivity extends AppCompatActivity {
             Log.d("FNAME", "data:" + i);
         }
     }
+    public void clickWrite4(View v)
+    {
+        String path = getExternalFilesDir("File").getAbsolutePath();
+        File fname = new File(path + File.separator + "data2.txt");
+        try {
+            FileWriter fw = new FileWriter(fname);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("Hello World");
+            bw.newLine();
+            bw.write("This is android");
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void clickRead4(View v)
+    {
+
+    }
 
 }
