@@ -103,4 +103,15 @@
         app:layout_constraintLeft_toRightOf="@+id/button7"
         app:layout_constraintTop_toBottomOf="@+id/button6" />
 
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="clickWrite5"
+        android:text="SDCard"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
 </android.support.constraint.ConstraintLayout>

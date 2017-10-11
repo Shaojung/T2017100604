@@ -1,6 +1,7 @@
 package com.example.teacher.t2017100604;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -165,6 +166,25 @@ public class MainActivity extends AppCompatActivity {
     public void clickRead4(View v)
     {
 
+    }
+    public void clickWrite5(View v)
+    {
+        File f = Environment.getExternalStorageDirectory();
+        Log.d("FNAME", f.getAbsolutePath());
+        File f2 = new File(f.getAbsolutePath() + File.separator + "mydata");
+        f2.mkdir();
+        File txtFile = new File(f2.getAbsolutePath() + File.separator + "data5.txt");
+        try {
+            FileWriter fw = new FileWriter(txtFile);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("Hello World");
+            bw.newLine();
+            bw.write("This is android");
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
