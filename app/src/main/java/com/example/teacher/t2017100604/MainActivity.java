@@ -91,5 +91,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+    public void clickWrite3(View v)
+    {
+        int[] data = {4,1,7,3,4,8,2,1};
+
+    }
+    public void clickRead3(View v)
+    {
+
+    }
 
 }
