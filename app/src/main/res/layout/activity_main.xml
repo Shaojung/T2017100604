@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.teacher.t2017100604.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -113,5 +104,16 @@
         android:text="SDCard"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="clickRead5"
+        android:text="SD Read"
+        app:layout_constraintLeft_toRightOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
 </android.support.constraint.ConstraintLayout>
