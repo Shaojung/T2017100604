@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -94,11 +95,56 @@ public class MainActivity extends AppCompatActivity {
     public void clickWrite3(View v)
     {
         int[] data = {4,1,7,3,4,8,2,1};
+        StringBuilder sb = new StringBuilder();
+        for (int i : data)
+        {
+            sb.append(i + ",");
+        }
+        String path = getFilesDir().getAbsolutePath();
+        File fname = new File(path + File.separator + "data3.txt");
+        try {
+            FileWriter fw = new FileWriter(fname);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(sb.toString());
+            bw.close();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     public void clickRead3(View v)
     {
+        String path = getFilesDir().getAbsolutePath();
+        File fname = new File(path + File.separator + "data3.txt");
+        ArrayList<Integer> mylist = new ArrayList();
+        try {
+            FileReader fr = new FileReader(fname);
+            BufferedReader br = new BufferedReader(fr);
+            String str;
+            str = br.readLine();
+            String strdata[] = str.split(",");
+            for (String s : strdata)
+            {
+                if (s.length() > 0)
+                {
+                    mylist.add(Integer.valueOf(s));
+                }
+            }
 
+
+            br.close();
+            fr.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for (int i : mylist)
+        {
+            Log.d("FNAME", "data:" + i);
+        }
     }
 
 }
